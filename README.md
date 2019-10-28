@@ -2,12 +2,12 @@
 
 This demo illustrates techniques for performing routine maintenance operations in a PureMVC-based [Android](https://en.wikipedia.org/wiki/Android_(operating_system)) application.
 
+## Screenshot
+![PureMVC Java Android Demo: Employee Admin](http://puremvc.org/pages/images/screenshots/PureMVC-Shot-Java-Android-EmployeeAdmin.png)
+
 ## Platforms / Technologies
 * [Android](https://en.wikipedia.org/wiki/Android_(operating_system))
 * [Java](https://en.wikipedia.org/wiki/Java_(programming_language))
-
-## Screenshot
-![PureMVC Java Android Demo: Employee Admin](http://puremvc.org/pages/images/screenshots/PureMVC-Shot-Java-Android-EmployeeAdmin.png)
 
 ## Status
 Production - [Version 1.0](https://github.com/PureMVC/puremvc-java-demo-android-employeeadmin/blob/master/VERSION)
