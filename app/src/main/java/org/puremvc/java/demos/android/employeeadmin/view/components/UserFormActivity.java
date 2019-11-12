@@ -38,15 +38,16 @@ public class UserFormActivity extends AppCompatActivity implements UserFormFragm
     }
 
     @Override
-    public void save(UserVO user) { // Response to Activity
+    public void save(UserVO user, ArrayList<RoleEnum> roles) { // Response to UserListActivity
         Intent intent = new Intent();
         intent.putExtra(Application.BUNDLE_USER, user);
+        intent.putParcelableArrayListExtra(Application.BUNDLE_USER_ROLE, roles);
         setResult(RESULT_FIRST_USER, intent);
         finish();
     }
 
     @Override
-    public void update(UserVO user, ArrayList<RoleEnum> roles) { // Response to Activity
+    public void update(UserVO user, ArrayList<RoleEnum> roles) { // Response to UserListActivity
         Intent intent = new Intent();
         intent.putExtra(Application.BUNDLE_USER, user);
         intent.putParcelableArrayListExtra(Application.BUNDLE_USER_ROLE, roles);
@@ -55,7 +56,7 @@ public class UserFormActivity extends AppCompatActivity implements UserFormFragm
     }
 
     @Override
-    public void cancel() { // Response to Activity
+    public void cancel() { // Response to UserListActivity
         setResult(RESULT_CANCELED);
         finish();
     }

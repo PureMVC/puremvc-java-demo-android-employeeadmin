@@ -35,7 +35,7 @@ public class UserVO implements Parcelable {
     }
 
     public Boolean isValid() {
-        return !(first.equals("") || last.equals("") || username.equals("") || password.equals(""));
+        return !(first.equals("") || last.equals("") || username.equals("") || password.equals("") || department.ordinal == DeptEnum.NONE_SELECTED.ordinal);
     }
 
     public String toString() {

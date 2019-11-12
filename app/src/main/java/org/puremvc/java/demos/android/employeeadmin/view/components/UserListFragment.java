@@ -46,6 +46,17 @@ public class UserListFragment extends Fragment implements GestureDetector.OnGest
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        view.findViewById(R.id.fab).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.fab).setOnClickListener(event -> activity.getDetails(null));
+    }
+
+    public void hideFab() {
+        getView().findViewById(R.id.fab).setVisibility(View.INVISIBLE);
+    }
+
     public void setUsers(ArrayList<UserVO> users) {
         this.users = users;
         adapter = new UserListAdapter(getActivity(), users);
@@ -143,6 +154,7 @@ public class UserListFragment extends Fragment implements GestureDetector.OnGest
     public void onAttach(Context context) {
         super.onAttach(context);
         activity = (IUserListFragment) getActivity();
+
     }
 
     public interface IUserListFragment {

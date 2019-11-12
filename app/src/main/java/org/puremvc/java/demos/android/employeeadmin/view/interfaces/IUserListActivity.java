@@ -17,7 +17,7 @@ public interface IUserListActivity {
 
     ArrayList<UserVO> getUsers();
 
-    void saveUser(UserVO user);
+    void saveUser(UserVO user, ArrayList<RoleEnum> roles);
 
     void updateUser(UserVO user);
 

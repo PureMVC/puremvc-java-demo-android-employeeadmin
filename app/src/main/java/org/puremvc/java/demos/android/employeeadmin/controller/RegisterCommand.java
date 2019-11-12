@@ -11,19 +11,18 @@ package org.puremvc.java.demos.android.employeeadmin.controller;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.puremvc.java.demos.android.employeeadmin.view.UserListMediator;
+import org.puremvc.java.demos.android.employeeadmin.view.components.UserListActivity;
 import org.puremvc.java.multicore.interfaces.INotification;
 import org.puremvc.java.multicore.patterns.command.SimpleCommand;
 
-public class ActivityCommand extends SimpleCommand {
+public class RegisterCommand extends SimpleCommand {
 
     @Override
     public void execute(INotification notification) {
         AppCompatActivity activity = (AppCompatActivity) notification.getBody();
 
-        if(getFacade().hasMediator(UserListMediator.NAME)) { // if previously registered
-            getFacade().removeMediator(UserListMediator.NAME);
+        if (activity instanceof UserListActivity) {
+            getFacade().registerMediator(new UserListMediator(activity));
         }
-
-        getFacade().registerMediator(new UserListMediator(activity));
     }
 }

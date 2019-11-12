@@ -133,7 +133,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
         android:text="@string/roles"
-        android:enabled="false"
         app:layout_constraintEnd_toEndOf="@id/guidelineRight"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/spinner"

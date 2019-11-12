@@ -10,6 +10,7 @@ package org.puremvc.java.demos.android.employeeadmin.view.components;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,14 +35,17 @@ public class UserListActivity extends AppCompatActivity implements UserListFragm
 
         ((Application) getApplication()).registerActivity(this);
 
-        findViewById(R.id.fab).setOnClickListener(event -> getDetails(null));
-
         UserListFragment fragment = (UserListFragment) getSupportFragmentManager().findFragmentById(R.id.userListFragment);
         fragment.setUsers(delegate.getUsers());
+
+        if(findViewById(R.id.userFormFragment) != null) {
+            fragment.hideFab();
+        }
     }
 
     @Override
     public void getDetails(UserVO user) { // UserFormActivity Request
+        Log.d("abc", "getDetails: get");
         if (findViewById(R.id.userFormFragment) != null) {
             UserFormFragment fragment = (UserFormFragment) getSupportFragmentManager().findFragmentById(R.id.userFormFragment);
             if (user != null) {
@@ -62,7 +66,7 @@ public class UserListActivity extends AppCompatActivity implements UserListFragm
     @Override
     public void getRoles(UserVO user, ArrayList<RoleEnum> roles) { // UserRoleActivity Request
         Intent intent = new Intent(this, UserRoleActivity.class);
-        intent.putParcelableArrayListExtra(Application.BUNDLE_USER_ROLE, delegate.getUserRoles(user.username));
+        intent.putParcelableArrayListExtra(Application.BUNDLE_USER_ROLE, user != null ? delegate.getUserRoles(user.username) : new ArrayList());
         startActivityForResult(intent, Application.REQUEST_ROLE_ACTIVITY);
     }
 
@@ -73,7 +77,8 @@ public class UserListActivity extends AppCompatActivity implements UserListFragm
         if (requestCode == Application.REQUEST_USER_FORM_ACTIVITY) {
             if (resultCode == RESULT_FIRST_USER) { // add
                 UserVO user = data.getParcelableExtra(Application.BUNDLE_USER);
-                this.save(user);
+                ArrayList<RoleEnum> roles = data.getParcelableArrayListExtra(Application.BUNDLE_USER_ROLE);
+                this.save(user, roles);
             } else if (resultCode == RESULT_OK) { // update
                 UserVO user = data.getParcelableExtra(Application.BUNDLE_USER);
                 ArrayList<RoleEnum> roles = data.getParcelableArrayListExtra(Application.BUNDLE_USER_ROLE);
@@ -90,9 +95,9 @@ public class UserListActivity extends AppCompatActivity implements UserListFragm
     }
 
     @Override
-    public void save(UserVO user) {
+    public void save(UserVO user, ArrayList<RoleEnum> roles) {
         ((UserListFragment) getSupportFragmentManager().findFragmentById(R.id.userListFragment)).addUser(user);
-        delegate.saveUser(user);
+        delegate.saveUser(user, roles);
     }
 
     @Override
@@ -108,6 +113,7 @@ public class UserListActivity extends AppCompatActivity implements UserListFragm
     public void cancel() {
     }
 
+    @Override
     public void delete(UserVO user) {
         if (findViewById(R.id.userFormFragment) != null) {
             ((UserFormFragment) getSupportFragmentManager().findFragmentById(R.id.userFormFragment)).reset();

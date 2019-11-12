@@ -34,7 +34,7 @@ public class UserFormFragment extends Fragment {
 
     private UserVO user;
 
-    private ArrayList<RoleEnum> roles;
+    private ArrayList<RoleEnum> roles = new ArrayList();
 
     private Spinner spinner;
 
@@ -91,7 +91,7 @@ public class UserFormFragment extends Fragment {
                 return;
             }
 
-            activity.save(user);
+            activity.save(user, roles);
             reset();
         });
 
@@ -114,7 +114,6 @@ public class UserFormFragment extends Fragment {
         ((TextView) getView().findViewById(R.id.email)).setText(user.email);
         ((TextView) getView().findViewById(R.id.username)).setText(user.username);
         ((TextView) getView().findViewById(R.id.password)).setText(user.password);
-        getView().findViewById(R.id.roles).setEnabled(true);
 
         getView().findViewById(R.id.username).setEnabled(false);
         ((TextView) getView().findViewById(R.id.confirm)).setText(user.password);
@@ -143,7 +142,6 @@ public class UserFormFragment extends Fragment {
         ((TextView) getView().findViewById(R.id.username)).setText("");
         ((TextView) getView().findViewById(R.id.password)).setText("");
         ((TextView) getView().findViewById(R.id.confirm)).setText("");
-        getView().findViewById(R.id.roles).setEnabled(false);
 
         getView().findViewById(R.id.username).setEnabled(true);
         ((TextView) getView().findViewById(R.id.confirm)).setText("");
@@ -159,7 +157,7 @@ public class UserFormFragment extends Fragment {
     }
 
     public interface IUserFormFragment {
-        void save(UserVO user);
+        void save(UserVO user, ArrayList<RoleEnum> roles);
         void update(UserVO user, ArrayList<RoleEnum> roles);
         void getRoles(UserVO user, ArrayList<RoleEnum> roles);
         void cancel();

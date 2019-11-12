@@ -50,9 +50,9 @@ public class UserListMediator extends Mediator implements IUserListActivity {
     }
 
     @Override
-    public void saveUser(UserVO user) {
+    public void saveUser(UserVO user, ArrayList<RoleEnum> roles) {
         userProxy.addItem(user);
-        roleProxy.addItem(new RoleVO(user.username, new ArrayList<>()));
+        roleProxy.addItem(new RoleVO(user.username, roles));
     }
 
     @Override
