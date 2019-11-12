@@ -13,7 +13,7 @@ Production - [Version 1.0](https://github.com/PureMVC/puremvc-java-demo-android-
 * [Java](https://en.wikipedia.org/wiki/Java_(programming_language))
 
 ## License
-* PureMVC Java Android Demo - Employee Admin - Copyright © 2019 [Saad Shams](https://www.linkedin.com/in/muizz/)
+* PureMVC Java Demo - Employee Admin Android App - Copyright © 2019 [Saad Shams](https://www.linkedin.com/in/muizz/)
 * PureMVC - Copyright © 2019 [Futurescale, Inc.](http://futurescale.com)
 * All rights reserved.
 
