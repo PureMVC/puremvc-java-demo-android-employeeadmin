@@ -154,7 +154,6 @@ public class UserListFragment extends Fragment implements GestureDetector.OnGest
     public void onAttach(Context context) {
         super.onAttach(context);
         activity = (IUserListFragment) getActivity();
-
     }
 
     public interface IUserListFragment {

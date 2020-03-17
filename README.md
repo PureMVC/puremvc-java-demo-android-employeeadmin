@@ -6,7 +6,7 @@ This demo illustrates techniques for performing routine maintenance operations i
 ![PureMVC Java Android Demo: Employee Admin](http://puremvc.org/pages/images/screenshots/PureMVC-Shot-Java-Android-EmployeeAdmin.png)
 
 ## Status
-Production - [Version 1.0](https://github.com/PureMVC/puremvc-java-demo-android-employeeadmin/blob/master/VERSION)
+Production - [Version 1.1](https://github.com/PureMVC/puremvc-java-demo-android-employeeadmin/blob/master/VERSION)
 
 ## Platforms / Technologies
 * [Android](https://en.wikipedia.org/wiki/Android_(operating_system))

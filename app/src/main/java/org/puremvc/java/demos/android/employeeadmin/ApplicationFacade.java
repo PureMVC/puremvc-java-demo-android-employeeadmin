@@ -32,7 +32,7 @@ public class ApplicationFacade extends Facade {
     }
 
     public static ApplicationFacade getInstance(String key) {
-        return (ApplicationFacade) Facade.getInstance(key, () -> new ApplicationFacade(key));
+        return (ApplicationFacade) Facade.getInstance(key, k -> new ApplicationFacade(k));
     }
 
     public void registerActivity(AppCompatActivity activity) {

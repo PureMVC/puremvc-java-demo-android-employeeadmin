@@ -22,7 +22,7 @@ public class DeleteUserCommand extends SimpleCommand {
         UserProxy userProxy = (UserProxy) getFacade().retrieveProxy(UserProxy.NAME);
         RoleProxy roleProxy = (RoleProxy) getFacade().retrieveProxy(RoleProxy.NAME);
         userProxy.deleteItem(userVO);
-        //roleProxy.deleteItem(userVO);
+        roleProxy.deleteItem(userVO.username);
     }
 
 }

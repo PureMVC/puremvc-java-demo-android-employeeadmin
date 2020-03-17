@@ -38,7 +38,7 @@ public class UserRoleFragment extends Fragment {
         View view =  inflater.inflate(R.layout.user_role_fragment, container, false);
 
         ListView listView = view.findViewById(R.id.listView);
-        listView.setAdapter(new UserRoleAdapter(getActivity(), new ArrayList<>(RoleEnum.list())));
+        listView.setAdapter(new UserRoleAdapter(getActivity(), RoleEnum.list()));
 
         View footer = inflater.inflate(R.layout.user_role_footer, null, false);
         listView.addFooterView(footer);
