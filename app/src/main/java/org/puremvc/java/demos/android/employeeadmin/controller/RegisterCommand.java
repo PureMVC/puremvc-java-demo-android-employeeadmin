@@ -22,6 +22,9 @@ public class RegisterCommand extends SimpleCommand {
         AppCompatActivity activity = (AppCompatActivity) notification.getBody();
 
         if (activity instanceof UserListActivity) {
+            if (getFacade().hasMediator(UserListMediator.NAME)) {
+                getFacade().removeMediator(UserListMediator.NAME);
+            }
             getFacade().registerMediator(new UserListMediator(activity));
         }
     }
